@@ -1,6 +1,6 @@
 {
   "name": "@402report/sdk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": false,
   "description": "Route your AI agents' HTTP through 402.report and query their x402 spend — set your API key and go.",
   "license": "MIT",
