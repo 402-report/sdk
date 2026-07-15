@@ -1,0 +1,59 @@
+{
+  "name": "@402report/sdk",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Route your AI agents' HTTP through 402.report and query their x402 spend — set your API key and go.",
+  "license": "MIT",
+  "author": "Jan Heye",
+  "homepage": "https://402.report",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/402-report/sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/402-report/sdk/issues"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./spend": {
+      "types": "./dist/spend.d.ts",
+      "default": "./dist/spend.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "x402",
+    "http-402",
+    "agent-payments",
+    "agentic-payments",
+    "ai-agent",
+    "mcp",
+    "spend-tracking",
+    "402report"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.0",
+    "typescript": "^6.0.3"
+  }
+}
