@@ -88,3 +88,19 @@ a dependency). The routing/config helpers above have no runtime dependencies.
 
 Point at a local proxy with `proxyUrl` / `mcpUrl` (e.g. `http://localhost:8402` and
 `http://localhost:8402/mcp`).
+
+## Development & releasing
+
+This repository is the canonical, public home for the published `@402report/sdk` package.
+
+- **Build:** `npm install && npm run build`. `npm run typecheck` type-checks without emitting.
+- **Publishing** is automated: bump the version (`npm version patch`), push the tag
+  (`git push --follow-tags`), then **publish a GitHub Release** for that tag. The
+  [`publish` workflow](.github/workflows/publish.yml) runs `npm publish --provenance` on
+  release. It needs an `NPM_TOKEN` repository secret (an npm **Automation** token).
+
+> **Type contract caveat.** The result types in [`src/types.ts`](src/types.ts) are hand-mirrored
+> from the 402.report server's wire contract (`@402report/shared`). A compile-time guard that
+> asserts they stay structurally compatible with the server's DTOs lives in the 402.report
+> monorepo, **not here**. When you change any result shape in `src/types.ts`, verify it against
+> the server contract in the monorepo so the two don't drift.
